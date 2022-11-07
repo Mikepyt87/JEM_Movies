@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import WatchListContext from "../context/WatchListContext";
 import Movie from "../models/Movie";
 import "./Results.css";
 
@@ -9,6 +11,7 @@ interface Props {
 
 //3
 const Results = ({ oneMovie }: Props) => {
+  const { addWatchList } = useContext(WatchListContext);
   return (
     <li className="Results">
       <h3>{oneMovie.title}</h3>
@@ -16,7 +19,13 @@ const Results = ({ oneMovie }: Props) => {
         src={`https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`}
         alt="movieImage"
       />
-      <button className="watchList">Add to your Watchlist</button>
+      <button
+        onClick={() => {
+          addWatchList(oneMovie);
+        }}
+      >
+        Add to your Watchlist
+      </button>
     </li>
   );
 };
