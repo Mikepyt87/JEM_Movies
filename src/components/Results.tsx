@@ -11,7 +11,8 @@ interface Props {
 
 //3
 const Results = ({ oneMovie }: Props) => {
-  const { addWatchList } = useContext(WatchListContext);
+  const { addWatchList, deleteFromWatchList, isOnWatchList } =
+    useContext(WatchListContext);
   return (
     <li className="Results">
       <h3>{oneMovie.title}</h3>
@@ -19,13 +20,25 @@ const Results = ({ oneMovie }: Props) => {
         src={`https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`}
         alt="movieImage"
       />
-      <button
-        onClick={() => {
-          addWatchList(oneMovie);
-        }}
-      >
-        Add to your Watchlist
-      </button>
+      {isOnWatchList(oneMovie.id) ? (
+        <button
+          className="deleteWatchList"
+          onClick={() => {
+            deleteFromWatchList(oneMovie.id);
+          }}
+        >
+          Remove from your Watchlist
+        </button>
+      ) : (
+        <button
+          className="addWatchList"
+          onClick={() => {
+            addWatchList(oneMovie);
+          }}
+        >
+          Add to Watchlist
+        </button>
+      )}
     </li>
   );
 };
