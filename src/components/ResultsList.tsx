@@ -5,13 +5,11 @@ import Results from "./Results";
 import "./ResultsList.css";
 import SearchForm from "./SearchForm";
 
-const ResultsList = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
+interface Props {
+  movies: Movie[];
+}
 
-  useEffect(() => {
-    getDiscoverMovies().then((res) => setMovies(res.results));
-  }, []);
-
+const ResultsList = ({ movies }: Props) => {
   return (
     <div className="ResultsList">
       <SearchForm />
