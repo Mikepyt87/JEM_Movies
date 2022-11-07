@@ -1,5 +1,4 @@
 import { ReactNode, useState } from "react";
-import { isRestParameter } from "typescript";
 import Movie from "../models/Movie";
 import WatchListContext from "./WatchListContext";
 
