@@ -17,7 +17,8 @@ const ResultsList = () => {
       <SearchForm />
       <ul>
         {movies.map((item) => (
-          <Results key={item.id} />
+          //1
+          <Results key={item.id} oneMovie={item} />
         ))}
       </ul>
     </div>
