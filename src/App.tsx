@@ -16,7 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/home" element={<Main />} />
-          <Route path="/watchList" element={<WatchList />} />
+          <Route path="/watchlist" element={<WatchList />} />
           {/* wildcard: */}
           <Route path="*" element={<Navigate to="/home" />} />
         </Routes>

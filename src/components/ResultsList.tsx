@@ -12,7 +12,6 @@ interface Props {
 const ResultsList = ({ movies }: Props) => {
   return (
     <div className="ResultsList">
-      <SearchForm />
       <ul>
         {movies.map((item) => (
           //1
