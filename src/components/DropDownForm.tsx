@@ -23,6 +23,7 @@ const DropDownForm = () => {
           setDropDownForm(e.target.value);
         }}
       >
+        <option value="">...select a genre</option>
         {listOfGenres.map((genre) => (
           <option key={genre.id} value={genre.id}>
             {genre.name}

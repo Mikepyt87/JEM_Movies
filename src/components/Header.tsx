@@ -8,6 +8,8 @@ const Header = () => {
         <h1>JEM Movies</h1>
       </Link>
       <Link to="/watchlist">Watchlist</Link>
+
+      <Link to="/toprated">Top Rated</Link>
     </div>
   );
 };
