@@ -7,6 +7,8 @@ import {
 import "./App.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import TopRatedList from "./components/TopRatedList";
+
 import WatchList from "./components/WatchList";
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/home" element={<Main />} />
+          <Route path="/toprated" element={<TopRatedList />} />
           <Route path="/watchlist" element={<WatchList />} />
           {/* wildcard: */}
           <Route path="*" element={<Navigate to="/home" />} />

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from "../models/Movie";
+import TopRated from "../models/TopRated";
 import {
   getDiscoverMovies,
   getMovieBySearchTerm,
@@ -8,9 +9,11 @@ import DropDownForm from "./DropDownForm";
 import "./Main.css";
 import ResultsList from "./ResultsList";
 import SearchForm from "./SearchForm";
+import TopRatedList from "./TopRatedMovies";
 
 const Main = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [topRatedMovies, setTopRatedMovies] = useState<TopRated[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
     if (searchTerm !== "") {
@@ -24,9 +27,9 @@ const Main = () => {
 
   return (
     <main className="Main">
-      Main works
       <SearchForm setTerm={setSearchTerm} />
       <DropDownForm />
+
       <ResultsList movies={movies} />
     </main>
   );
