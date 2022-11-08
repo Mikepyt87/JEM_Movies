@@ -8,11 +8,15 @@ import TopRatedResponse from "../models/TopRatedResponse";
 
 const apiKey: string = process.env.REACT_APP_JEMMOVIE_API_KEY || "";
 
-export const getDiscoverMovies = (): Promise<DiscoverMovieResponse> => {
+export const getDiscoverMovies = (
+  dropDownForm: string,
+  voteAverage: string,
+  runTime: string
+): Promise<DiscoverMovieResponse> => {
   return axios
     .get(`https://api.themoviedb.org/3/discover/movie`, {
       // list all of the query params we are searching for in the params argument below
-      params: { api_key: apiKey },
+      params: { api_key: apiKey, dropDownForm, voteAverage, runTime },
     })
     .then((res) => {
       return res.data;
