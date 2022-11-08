@@ -7,6 +7,7 @@ const WatchList = () => {
   const { watchList } = useContext(WatchListContext);
   return (
     <ul className="WatchList">
+      <h2>Your Watchlist</h2>
       {watchList.map((item) => (
         <Results key={item.id} oneMovie={item} />
       ))}

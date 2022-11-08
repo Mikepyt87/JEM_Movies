@@ -36,7 +36,7 @@ const Results = ({ oneMovie }: Props) => {
             addWatchList(oneMovie);
           }}
         >
-          Add to Watchlist
+          Add to your Watchlist
         </button>
       )}
     </li>

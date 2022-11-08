@@ -24,7 +24,7 @@ const Main = () => {
   return (
     <main className="Main">
       Main works
-      {/* <SearchForm setTerm={setSearchTerm} /> */}
+      <SearchForm setTerm={setSearchTerm} />
       <ResultsList movies={movies} />
     </main>
   );
