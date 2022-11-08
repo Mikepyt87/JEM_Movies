@@ -4,6 +4,7 @@ import {
   getDiscoverMovies,
   getMovieBySearchTerm,
 } from "../services/movieDBApiService";
+import DropDownForm from "./DropDownForm";
 import "./Main.css";
 import ResultsList from "./ResultsList";
 import SearchForm from "./SearchForm";
@@ -25,6 +26,7 @@ const Main = () => {
     <main className="Main">
       Main works
       <SearchForm setTerm={setSearchTerm} />
+      <DropDownForm />
       <ResultsList movies={movies} />
     </main>
   );
