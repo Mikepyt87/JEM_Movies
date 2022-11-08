@@ -15,20 +15,30 @@ const Main = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [topRatedMovies, setTopRatedMovies] = useState<TopRated[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [dropDownForm, setDropDownForm] = useState("");
+  const [voteAverage, setVoteAverage] = useState("");
+  const [runTime, setRunTime] = useState("");
   useEffect(() => {
     if (searchTerm !== "") {
       getMovieBySearchTerm(searchTerm).then((res) => setMovies(res.results));
     } else {
-      getDiscoverMovies().then((res) => {
+      getDiscoverMovies(dropDownForm, voteAverage, runTime).then((res) => {
         setMovies(res.results);
       });
+      console.log("hello");
     }
-  }, [searchTerm]);
+  }, [searchTerm, dropDownForm, voteAverage, runTime]);
+  // --------------------------------------------------------------------- change any!!! --------------------
+  const handleCriteria = (object: any) => {
+    setDropDownForm(object.dropDownForm);
+    setVoteAverage(object.voteAverage);
+    setRunTime(object.runTime);
+  };
 
   return (
     <main className="Main">
       <SearchForm setTerm={setSearchTerm} />
-      <DropDownForm />
+      <DropDownForm criteria={handleCriteria} />
 
       <ResultsList movies={movies} />
     </main>
