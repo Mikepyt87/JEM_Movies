@@ -1,0 +1,15 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #0a0908;
+  background-color: #c6ac8f;
+  border-bottom: solid 5px #d71709;
+  padding: 5px 20px 0 20px;
+}
+.Header h1 {
+  font-family: "Limelight", cursive;
+}
+.Header .watchlist {
+  padding-right: 20px;
+}
