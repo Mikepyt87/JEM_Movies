@@ -3,4 +3,6 @@ export default interface Movie {
   poster_path: string;
   vote_average: number;
   id: number;
+  overview?: string;
+  runtime?: number;
 }

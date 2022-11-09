@@ -11,6 +11,7 @@ import Main from "./components/Main";
 import TopRatedList from "./components/TopRatedList";
 
 import WatchList from "./components/WatchList";
+import { getMovieById } from "./services/movieDBApiService";
 
 function App() {
   return (

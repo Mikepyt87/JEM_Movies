@@ -3,7 +3,7 @@ import MovieResponse from "../models/DiscoverMovieResponse";
 import DiscoverMovieResponse from "../models/DiscoverMovieResponse";
 import Genre from "../models/Genres";
 import { GenresResponse } from "../models/GenresResponse";
-import SingleMovieResponse from "../models/SingleMovieResponse";
+import Movie from "../models/Movie";
 import TopRatedResponse from "../models/TopRatedResponse";
 
 const apiKey: string = process.env.REACT_APP_JEMMOVIE_API_KEY || "";
@@ -11,8 +11,7 @@ const apiKey: string = process.env.REACT_APP_JEMMOVIE_API_KEY || "";
 export const getDiscoverMovies = (
   dropDownForm: string,
   voteAverage: string,
-  runTime: string,
-  id: number
+  runTime: string
 ): Promise<DiscoverMovieResponse> => {
   return axios
     .get(`https://api.themoviedb.org/3/discover/movie`, {
@@ -23,7 +22,6 @@ export const getDiscoverMovies = (
         "vote_average.gte": voteAverage,
         "with_runTime.lte": runTime,
         include_adult: false,
-        id: id,
       },
     })
     .then((res) => {
@@ -83,12 +81,12 @@ export const getTopRated = (): Promise<TopRatedResponse> => {
     .catch((error) => console.log(error));
 };
 
-export const getMovieById = (id: number): Promise<any> => {
+export const getMovieById = (id: number): Promise<Movie> => {
   return axios
-    .get("https://api.themoviedb.org/3/discover/movie", {
+    .get(`https://api.themoviedb.org/3/movie/${id}`, {
+      // for query params only
       params: {
-        api_Key: apiKey,
-        id: id,
+        api_key: apiKey,
       },
     })
     .then((res) => res.data)
