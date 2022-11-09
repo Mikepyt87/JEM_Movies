@@ -16,11 +16,16 @@ const Results = ({ oneMovie }: Props) => {
   const { addWatchList, deleteFromWatchList, isOnWatchList } =
     useContext(WatchListContext);
   const id: string | undefined = useParams().id;
+  const totalMinutes = oneMovie.runtime;
+  const hours = Math.floor(oneMovie.runtime! / 60);
+  const minutes = totalMinutes! % 60;
+
   return (
     <li className="Results">
-      {/* <h3>{oneMovie.title}</h3> */}
+      <h3>{oneMovie.title}</h3>
       <Link to={`/details/${oneMovie.id}`}>
         <img
+          className="poster"
           src={`https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`}
           alt="movieImage"
         />
@@ -28,7 +33,7 @@ const Results = ({ oneMovie }: Props) => {
       {/* add extra stuff to details */}
 
       {id && <p>{oneMovie.overview}</p>}
-      {id && <p>{oneMovie.runtime}</p>}
+      {id && <p>{`${hours} hours ${minutes} minutes`}</p>}
       {isOnWatchList(oneMovie.id) ? (
         <button
           className="deleteWatchList"

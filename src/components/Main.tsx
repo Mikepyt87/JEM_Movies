@@ -18,6 +18,7 @@ const Main = () => {
   const [dropDownForm, setDropDownForm] = useState("");
   const [voteAverage, setVoteAverage] = useState("");
   const [runTime, setRunTime] = useState("");
+  const [chooseForm, setChooseForm] = useState(false);
   useEffect(() => {
     if (searchTerm !== "") {
       getMovieBySearchTerm(searchTerm).then((res) => setMovies(res.results));
@@ -38,9 +39,18 @@ const Main = () => {
 
   return (
     <main className="Main">
-      <SearchForm setTerm={setSearchTerm} />
-      <DropDownForm criteria={handleCriteria} />
-
+      {chooseForm ? (
+        <SearchForm setTerm={setSearchTerm} />
+      ) : (
+        <DropDownForm criteria={handleCriteria} />
+      )}
+      <button
+        onClick={() => {
+          setChooseForm((prev) => !prev);
+        }}
+      >
+        Switch search method
+      </button>
       <ResultsList movies={movies} />
     </main>
   );
