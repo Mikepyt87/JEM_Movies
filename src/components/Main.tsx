@@ -25,14 +25,15 @@ const Main = () => {
       getDiscoverMovies(dropDownForm, voteAverage, runTime).then((res) => {
         setMovies(res.results);
       });
-      console.log("hello");
+      console.log(movies);
     }
   }, [searchTerm, dropDownForm, voteAverage, runTime]);
   // --------------------------------------------------------------------- change any!!! --------------------
   const handleCriteria = (object: any) => {
-    setDropDownForm(object.dropDownForm);
+    setDropDownForm(() => object.dropDownForm);
     setVoteAverage(object.voteAverage);
     setRunTime(object.runTime);
+    console.log(dropDownForm);
   };
 
   return (

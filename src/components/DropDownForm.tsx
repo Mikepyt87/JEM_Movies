@@ -19,6 +19,7 @@ const DropDownForm = ({ criteria }: Props) => {
   }, []);
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    console.log(dropDownForm);
     criteria({ dropDownForm, voteAverage, runTime });
   };
 

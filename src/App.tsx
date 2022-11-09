@@ -5,6 +5,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import "./App.css";
+import Details from "./components/Details";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import TopRatedList from "./components/TopRatedList";
@@ -18,6 +19,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/home" element={<Main />} />
+          <Route path="/details/:id" element={<Details />} />
           <Route path="/toprated" element={<TopRatedList />} />
           <Route path="/watchlist" element={<WatchList />} />
           {/* wildcard: */}
