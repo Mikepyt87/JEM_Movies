@@ -1,9 +1,11 @@
 .Results {
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
 }
 .Results img.poster {
   width: 400px;
+  border: 5px solid #d71709;
 }

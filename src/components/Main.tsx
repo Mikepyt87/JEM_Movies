@@ -44,13 +44,15 @@ const Main = () => {
       ) : (
         <DropDownForm criteria={handleCriteria} />
       )}
-      <button
-        onClick={() => {
-          setChooseForm((prev) => !prev);
-        }}
-      >
-        Switch search method
-      </button>
+      <div className="switchButton">
+        <button
+          onClick={() => {
+            setChooseForm((prev) => !prev);
+          }}
+        >
+          Switch search method
+        </button>
+      </div>
       <ResultsList movies={movies} />
     </main>
   );
