@@ -11,12 +11,20 @@ const apiKey: string = process.env.REACT_APP_JEMMOVIE_API_KEY || "";
 export const getDiscoverMovies = (
   dropDownForm: string,
   voteAverage: string,
-  runTime: string
+  runTime: string,
+  id: number
 ): Promise<DiscoverMovieResponse> => {
   return axios
     .get(`https://api.themoviedb.org/3/discover/movie`, {
       // list all of the query params we are searching for in the params argument below
-      params: { api_key: apiKey, dropDownForm, voteAverage, runTime },
+      params: {
+        api_key: apiKey,
+        with_genres: dropDownForm,
+        "vote_average.gte": voteAverage,
+        "with_runTime.lte": runTime,
+        include_adult: false,
+        id: id,
+      },
     })
     .then((res) => {
       return res.data;
@@ -69,6 +77,18 @@ export const getTopRated = (): Promise<TopRatedResponse> => {
     .get("https://api.themoviedb.org/3/movie/top_rated", {
       params: {
         api_key: apiKey,
+      },
+    })
+    .then((res) => res.data)
+    .catch((error) => console.log(error));
+};
+
+export const getMovieById = (id: number): Promise<any> => {
+  return axios
+    .get("https://api.themoviedb.org/3/discover/movie", {
+      params: {
+        api_Key: apiKey,
+        id: id,
       },
     })
     .then((res) => res.data)
