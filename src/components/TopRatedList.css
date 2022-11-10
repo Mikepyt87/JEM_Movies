@@ -1,0 +1,21 @@
+.TopRatedList {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.TopRatedList img {
+  width: 400px;
+  border: 5px solid #d71709;
+}
+
+.ratingDiv {
+  display: flex;
+  justify-content: center;
+}
+.rating {
+  font-weight: bold;
+  color: #d71709;
+  padding-left: 5px;
+}

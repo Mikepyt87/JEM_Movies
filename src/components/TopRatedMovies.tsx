@@ -17,7 +17,10 @@ const TopRatedMovies = ({ topRated }: Props) => {
         src={`https://image.tmdb.org/t/p/w500/${topRated.poster_path}`}
         alt="movieImage"
       />
-      <p>{topRated.vote_average}</p>
+      <div className="ratingDiv">
+        <p> Average user rating:</p>
+        <p className="rating">{topRated.vote_average}</p>
+      </div>
       {isOnWatchList(topRated.id) ? (
         <button
           className="deleteWatchList"

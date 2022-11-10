@@ -6,6 +6,30 @@
   flex-wrap: wrap;
 }
 .Results img.poster {
+  border-radius: 20px;
   width: 400px;
   border: 5px solid #d71709;
+}
+.overview {
+  border-radius: 20px 20px 0 0;
+  background-color: #2d434e;
+  color: #f1ebe4;
+  padding: 15px 20px;
+  border-top: #d71709 solid;
+}
+.runtime {
+  border-radius: 0 0 20px 20px;
+  color: #f1ebe4;
+  text-align: center;
+  background-color: #2d434e;
+  border-bottom: #d71709 solid;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.deleteWatchList {
+  color: #f1ebe4;
+  background-color: #d71709;
+
+  border: 3px solid #2d434e;
 }
