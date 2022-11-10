@@ -1,8 +1,10 @@
-import { useContext } from "react";
+import { SourceMap } from "module";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import WatchListContext from "../context/WatchListContext";
 import Movie from "../models/Movie";
+import { getMoviesByCastMember } from "../services/movieDBApiService";
 import "./Results.css";
 
 //2
@@ -15,10 +17,25 @@ interface Props {
 const Results = ({ oneMovie }: Props) => {
   const { addWatchList, deleteFromWatchList, isOnWatchList } =
     useContext(WatchListContext);
+  const [isASamberg, setisASamberg] = useState(false);
   const id: string | undefined = useParams().id;
   const totalMinutes = oneMovie.runtime;
   const hours = Math.floor(oneMovie.runtime! / 60);
   const minutes = totalMinutes! % 60;
+
+  useEffect(() => {
+    if (oneMovie) {
+      console.log("test");
+      getMoviesByCastMember(oneMovie.id).then((res) => {
+        const isAndySambergHere: boolean = res.cast.some((member) => {
+          return member.id === 62861;
+        });
+        if (isAndySambergHere) {
+          setisASamberg(true);
+        }
+      });
+    }
+  }, [oneMovie]);
 
   return (
     <li className="Results">
@@ -31,7 +48,10 @@ const Results = ({ oneMovie }: Props) => {
         />
       </Link>
       {/* add extra stuff to details */}
-
+      {<p className="andyPic"></p>}
+      {isASamberg && (
+        <p className="andy">ANDY SAMBERG IS IN ONE OF THESE MOVIES!!</p>
+      )}
       {id && <p className="overview">{oneMovie.overview}</p>}
       {id && <p className="runtime">{`${hours} hours ${minutes} minutes`}</p>}
       {isOnWatchList(oneMovie.id) ? (

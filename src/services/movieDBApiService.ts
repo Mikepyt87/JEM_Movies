@@ -1,4 +1,5 @@
 import axios from "axios";
+import CreditsResponse from "../models/CreditsResponse";
 import MovieResponse from "../models/DiscoverMovieResponse";
 import DiscoverMovieResponse from "../models/DiscoverMovieResponse";
 import Genre from "../models/Genres";
@@ -88,6 +89,15 @@ export const getMovieById = (id: number): Promise<Movie> => {
       params: {
         api_key: apiKey,
       },
+    })
+    .then((res) => res.data)
+    .catch((error) => console.log(error));
+};
+
+export const getMoviesByCastMember = (id: number): Promise<CreditsResponse> => {
+  return axios
+    .get(`https://api.themoviedb.org/3/movie/${id}/credits`, {
+      params: { api_key: apiKey },
     })
     .then((res) => res.data)
     .catch((error) => console.log(error));

@@ -33,3 +33,17 @@
 
   border: 3px solid #2d434e;
 }
+
+.Results .andy {
+  font-family: "Limelight", cursive;
+  background-color: #d71709;
+  font-size: 18px;
+  color: #ffff00;
+  height: 110px;
+  width: 90px;
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  border: solid 5px #6699cd;
+  border-radius: 10px;
+}
