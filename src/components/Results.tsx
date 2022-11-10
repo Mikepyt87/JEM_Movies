@@ -32,8 +32,8 @@ const Results = ({ oneMovie }: Props) => {
       </Link>
       {/* add extra stuff to details */}
 
-      {id && <p>{oneMovie.overview}</p>}
-      {id && <p>{`${hours} hours ${minutes} minutes`}</p>}
+      {id && <p className="overview">{oneMovie.overview}</p>}
+      {id && <p className="runtime">{`${hours} hours ${minutes} minutes`}</p>}
       {isOnWatchList(oneMovie.id) ? (
         <button
           className="deleteWatchList"

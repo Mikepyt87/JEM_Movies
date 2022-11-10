@@ -13,3 +13,6 @@
 .Header .watchlist {
   padding-right: 20px;
 }
+.Header a {
+  font-weight: bold;
+}
